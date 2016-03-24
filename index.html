@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ZUNDERLIST</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+
+</head>
+
+<body background="img/bg1.jpg">
+
+    <div id="wrapper" >
+
+        <!-- Sidebar -->
+		
+        <div id="sidebar-wrapper" class="row" style="background-color:rgba(200,200,200,0.5) ;height:100%; padding-top:15px;"  ng-controller="ListController">  
+             <div class="col-sm-12">
+			    <a >
+                   <p class="bg-info"> <span class="btn btn-sm">  </span>  <button  class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button></p> 
+				</a>
+			</div>            
+			
+                    
+            <div id="footer" style="bottom:-50px;margin-bottom: 50px;">
+              <form>
+                  <div class="input-group" style=" padding-left:15px; width:200px; float:left;">
+                      <input class="form-control" type="text"  placeholder="Enter a new list">
+				  </div>
+				  <div style="margin-left:-1px;">
+					  <button class="btn btn-default pull-left"><span class="glyphicon glyphicon-plus"></span>&nbsp;</button>
+                 </div>
+           </form>
+       </div>
+   </div>
+
+   <div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div ></div>
+        <div ></div>
+        
+   </div>
+</div>
+</div>
+
+<script src="script/jquery.js"></script>
+
+<script src="script/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    
+</script>
+
+
+</body>
+</html>
