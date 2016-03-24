@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
 
@@ -25,8 +25,8 @@
 		
         <div id="sidebar-wrapper" class="row" style="background-color:rgba(200,200,200,0.5) ;height:100%; padding-top:15px;"  ng-controller="ListController">  
              <div class="col-sm-12">
-			    <a >
-                   <p class="bg-info"> <span class="btn btn-sm">  </span>  <button  class="btn btn-sm btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button></p> 
+			    <a  ui-sref="items({id:item.id})" ng-repeat= "item in data.list | orderBy: 'name'" >
+                   <p class="bg-info"> <span class="btn btn-sm">{{item.name}}</span>  <button  class="btn btn-sm btn-danger pull-right" ng-click="delete($index)"><span class="glyphicon glyphicon-trash"></span>&nbsp;</button></p> 
 				</a>
 			</div>            
 			
@@ -34,10 +34,10 @@
             <div id="footer" style="bottom:-50px;margin-bottom: 50px;">
               <form>
                   <div class="input-group" style=" padding-left:15px; width:200px; float:left;">
-                      <input class="form-control" type="text"  placeholder="Enter a new list">
+                      <input class="form-control" ng-model="newList" type="text"  placeholder="Enter a new list">
 				  </div>
 				  <div style="margin-left:-1px;">
-					  <button class="btn btn-default pull-left"><span class="glyphicon glyphicon-plus"></span>&nbsp;</button>
+					  <button ng-click="add()" class="btn btn-default pull-left"><span class="glyphicon glyphicon-plus"></span>&nbsp;</button>
                  </div>
            </form>
        </div>
@@ -46,7 +46,7 @@
    <div id="page-content-wrapper">
     <div class="container-fluid">
         <div ></div>
-        <div ></div>
+        <div ui-view></div>
         
    </div>
 </div>
@@ -57,16 +57,17 @@
 <script src="script/bootstrap.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-
-
+<script type="text/javascript" src="script/angular-ui-router.min.js"></script>
 <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-    
+   var app= angular.module("myApp",['ui.router']);
 </script>
-
+<script type="text/javascript" src="controller/Config.js"></script>
+<script type="text/javascript" src="controller/ListController.js"></script>
+<script type="text/javascript" src="controller/DetailController.js"></script>
 
 </body>
 </html>
